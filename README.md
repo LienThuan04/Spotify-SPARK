@@ -26,6 +26,22 @@
 </a>
 ```
 
+> **Seeing `403 - The user is not registered for this application`?**
+> This deployment runs in Spotify Development Mode, so only registered users can connect.
+> You have two options:
+>
+> 1. **Self-deploy (recommended, free)** — fork this repo, create your own Spotify app in the
+>    [Spotify Developer Dashboard](https://developer.spotify.com/dashboard), and deploy with your own
+>    `SPOTIFY_CLIENT_ID` / `SPOTIFY_SECRET_ID`. Your app, your users. See
+>    [Development](https://github.com/LienThuan04/Spotify-SPARK/wiki#development).
+> 2. **Request access** — email [lienthuan2004@gmail.com](mailto:lienthuan2004@gmail.com) with the
+>    subject `Spotify-SPARK access request` and include:
+>    - your name,
+>    - the email address of your Spotify account.
+>
+>    Your address is only used to register you in the Spotify app's User Management so you can log in.
+>    Please allow some time for manual approval.
+
 ## Documentation
 
 Everything else lives on one [wiki page](https://github.com/LienThuan04/Spotify-SPARK/wiki) so this page stays short:

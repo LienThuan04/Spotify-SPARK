@@ -6,6 +6,19 @@
 
 **Quick start:** [connect with Spotify](https://spotify-spark.vercel.app/api/login) → build your card in [Card Studio](#card-studio) → paste the code into your profile README.
 
+> **Got `403 - The user is not registered for this application`?**
+> This deployment runs in Spotify Development Mode: only users registered in the Spotify app's
+> User Management can connect. Pick one:
+>
+> 1. **Self-deploy (recommended, free).** Fork the repo, create your own app in the
+>    [Spotify Developer Dashboard](https://developer.spotify.com/dashboard), and deploy with your own
+>    `SPOTIFY_CLIENT_ID` / `SPOTIFY_SECRET_ID`. Then anyone you register can connect.
+>    See [Development](#development).
+> 2. **Request access.** Email [lienthuan2004@gmail.com](mailto:lienthuan2004@gmail.com) with the
+>    subject `Spotify-SPARK access request`, including your name and the email address of your
+>    Spotify account. Your address is only used to register you so you can log in; allow some time
+>    for manual approval.
+
 ## Contents
 
 1. [Card Studio](#card-studio)
@@ -183,6 +196,24 @@ Wrap it in a link with `redirect=true` so clicking the card opens the song:
 <sub>[↑ Back to contents](#contents)</sub>
 
 ## Development
+
+### Self-deploy your own instance
+
+Because this project's public deployment runs in Spotify Development Mode, it can only serve
+registered users. To run a card for yourself (and anyone you register), deploy your own copy —
+it is free on Vercel's hobby tier:
+
+1. **Fork** [LienThuan04/Spotify-SPARK](https://github.com/LienThuan04/Spotify-SPARK).
+2. **Spotify app** — in the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard),
+   create an app, add the Redirect URI `<your-vercel-url>/api/callback`, and note the
+   Client ID and Client Secret. Tick only **Web API**.
+3. **Firebase** — create a Firebase project, enable Cloud Firestore, generate a service-account
+   JSON key, and base64-encode it (see [Setting up Firebase](#setting-up-firebase)).
+4. **Vercel** — import your fork, set environment variables `SPOTIFY_CLIENT_ID`,
+   `SPOTIFY_SECRET_ID`, `BASE_URL` (`https://<your-vercel-url>/api`), `FIREBASE`, and
+   optionally `FEEDBACK_URL`, then deploy.
+5. **Register users** — in your Spotify app's **User Management**, add each Spotify account
+   (name + email) that may connect via `<your-vercel-url>/api/login`.
 
 ### Running for development locally without Vercel
 
